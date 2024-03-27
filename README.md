@@ -1,7 +1,7 @@
 # Library Management Application
 ### Type of Application: B to B
 ### Target Audience: Admin, User
-### Development Time: 5 days
+### Development Time: 4 days
 ### Tech Stack: JAVA
 
 ### Features:
