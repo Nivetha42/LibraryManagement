@@ -1,7 +1,6 @@
 package com.zsgs.librarymanagement.model;
 
 import org.json.simple.JSONObject;
-
 import com.google.gson.JsonObject;
 
 public class Library {
@@ -41,14 +40,6 @@ public class Library {
 		this.address = address;
 	}
 	
-	public JSONObject toJsonObject()
-	{
-		JSONObject jo=new JSONObject();
-		jo.put("libraryName",libraryName);
-		jo.put("Id",id);
-		jo.put("emailId",emailId);
-		return jo;
-		
-	}
+	
 
 }

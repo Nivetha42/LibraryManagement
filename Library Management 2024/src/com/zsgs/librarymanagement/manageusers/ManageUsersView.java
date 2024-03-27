@@ -67,6 +67,8 @@ public class ManageUsersView {
 		user.setUserName(userName);
 		System.out.println("Enter User EmailId : ");
 		user.setEmailId(sc.nextLine());
+		System.out.println("Enter the Phone Number : ");
+		user.setPhoneNo(sc.nextLong());
 		System.out.println("Enter Password : ");
 		String password = sc.next();
 		c.setPassword(password);

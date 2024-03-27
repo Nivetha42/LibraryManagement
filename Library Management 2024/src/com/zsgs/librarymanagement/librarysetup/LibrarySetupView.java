@@ -1,8 +1,6 @@
 package com.zsgs.librarymanagement.librarysetup;
-
 import java.text.ParseException;
 import java.util.Scanner;
-
 import com.zsgs.librarymanagement.LibraryManagement2024;
 import com.zsgs.librarymanagement.assignBooks.AssignBooksView;
 import com.zsgs.librarymanagement.login.LoginView;
@@ -13,6 +11,7 @@ import com.zsgs.librarymanagement.removebook.RemoveBookView;
 import com.zsgs.librarymanagement.returnprocess.ReturnProcessView;
 import com.zsgs.librarymanagement.searchbook.SearchBookView;
 import com.zsgs.librarymanagement.viewbook.ViewBooksView;
+
 
 public class LibrarySetupView {
 	public LibrarySetupModel librarySetupModel;
@@ -34,6 +33,11 @@ public class LibrarySetupView {
 		library.setLibraryName(sc.nextLine());
 		System.out.println("\nEnter Library Email: ");
 		library.setEmailId(sc.nextLine());
+		System.out.println("\nEnter Library Phone Number");
+		library.setPhoneNo(sc.nextLong());
+		sc.nextLine();
+		System.out.println("\nEnter the Location:");
+		library.setAddress(sc.nextLine());
 		library.setId(1);
 		librarySetupModel.createLibrary(library);
 	}

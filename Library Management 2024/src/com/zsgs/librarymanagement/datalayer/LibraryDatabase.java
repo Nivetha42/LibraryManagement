@@ -87,7 +87,6 @@ public class LibraryDatabase {
 				return book;
 			}
 		}
-		// select query with condition.
 		return null;
 	}
 
@@ -155,7 +154,6 @@ public class LibraryDatabase {
 	public boolean isBookAlloted(int bookId) {
 		for (Book book : bookList) {
 			if (book.getId() == bookId) {
-//				System.out.println(book.getIsAssigned()+" "+bookId);
 				if (book.getIsAssigned() == false) {
 					return true;
 				}
@@ -235,10 +233,11 @@ public class LibraryDatabase {
 		libJson.put("Id", library.getId());
 		libJson.put("LibraryName", library.getLibraryName());
 		libJson.put("emailId", library.getEmailId());
+		libJson.put("PhoneNumber", library.getPhoneNo());
+		libJson.put("Location",library.getLibraryName());
 		jsonArray.add(libJson);
 		try (FileWriter file = new FileWriter("library.json")) {
 			file.write(jsonArray.toJSONString());
-//			System.out.println("written to library.json");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -258,9 +257,12 @@ public class LibraryDatabase {
 				long id = (long) jsonObject.get("Id");
 				String emailId = (String) jsonObject.get("emailId");
 				String libName = (String) jsonObject.get("LibraryName");
+				long phoneNo=(long)jsonObject.get("PhoneNumber");
+				String loc=(String)jsonObject.get("Location");
 				l.setId((int) id);
 				l.setEmailId(emailId);
 				l.setLibraryName(libName);
+				l.setPhoneNo(phoneNo);
 			}
 		} catch (IOException | ParseException e) {
 			e.printStackTrace();
@@ -270,7 +272,6 @@ public class LibraryDatabase {
 	}
 	  private  void writeJsonBook() {
 	        JSONArray jsonArray = new JSONArray();
-//	        System.out.println(bookList);
 	        for (Book book : bookList) {
 	            JSONObject bookJson = new JSONObject();
 	            bookJson.put("Id", book.getId());
@@ -284,7 +285,6 @@ public class LibraryDatabase {
 
 	        try (FileWriter file = new FileWriter("Books.json")) {
 	            file.write(jsonArray.toJSONString());
-//	            System.out.println("written to Books.json");
 	        } catch (IOException e) {
 	            e.printStackTrace();
 	        }
@@ -293,7 +293,6 @@ public class LibraryDatabase {
 			List<Book> book = new ArrayList<Book>();
 			File file = new File("Books.json");
 	        if (!file.exists() || file.length() == 0) {
-//	            System.out.println("No Books data available in the file.");
 	            return book;
 	        }
 			try {
@@ -324,19 +323,18 @@ public class LibraryDatabase {
 		}
 	  private  void writeJsonUser() {
 	        JSONArray jsonArray = new JSONArray();
-//	         System.out.println(userList);
 	        for (User user : userList) {
 	            JSONObject userJson = new JSONObject();
 	            userJson.put("Id", user.getUserId());
 	            userJson.put("email", user.getEmailId());
 	            userJson.put("name", user.getUserName());
+	            userJson.put("phoneNumber",user.getPhoneNo());
 	            jsonArray.add(userJson);
 	           
 	        }
 
 	        try (FileWriter file = new FileWriter("users.json")) {
 	            file.write(jsonArray.toJSONString());
-//	            System.out.println("written to users.json");
 	        } catch (IOException e) {
 	            e.printStackTrace();
 	        }
@@ -345,7 +343,6 @@ public class LibraryDatabase {
 			List<User> user = new ArrayList<User>();
 			File file = new File("users.json");
 	        if (!file.exists() || file.length() == 0) {
-//	            System.out.println("No users data available in the file.");
 	            return user;
 	        }
 	        long id=0;
@@ -357,10 +354,12 @@ public class LibraryDatabase {
 					 id = (long) jsonObject.get("Id");
 					String name = (String) jsonObject.get("name");
 					String email = (String) jsonObject.get("email");
+					long ph=(long)jsonObject.get("phoneNumber");
 					User u=new User();
 					u.setUserId((int)id);
 					u.setUserName(name);
 					u.setEmailId(email);
+					u.setPhoneNo(ph);
 					user.add(u);
 					
 				}
@@ -381,7 +380,6 @@ public class LibraryDatabase {
 	           
 	        try (FileWriter file = new FileWriter("credentials.json")) {
 	            file.write(jsonArray.toJSONString());
-//	            System.out.println("written to credentials.json");
 	        } catch (IOException e) {
 	            e.printStackTrace();
 	        }
@@ -391,7 +389,6 @@ public class LibraryDatabase {
 			List<Credentials> user = new ArrayList<Credentials>();
 			File file = new File("credentials.json");
 	        if (!file.exists() || file.length() == 0) {
-//	            System.out.println("No users data available in the file.");
 	            return user;
 	        }
 	        long id=0;
@@ -429,7 +426,7 @@ public class LibraryDatabase {
 
 	        try (FileWriter file = new FileWriter("borrowList.json")) {
 	            file.write(jsonArray.toJSONString());
-//	            System.out.println("written to borrowList.json");
+
 	        } catch (IOException e) {
 	            e.printStackTrace();
 	        }
@@ -438,7 +435,7 @@ public class LibraryDatabase {
 			List<Allot> borrow = new ArrayList<Allot>();
 			File file = new File("borrowList.json");
 	        if (!file.exists() || file.length() == 0) {
-//	            System.out.println("No users data available in the file.");
+
 	            return borrow;
 	        }
 	        long id=0;
@@ -481,7 +478,6 @@ public class LibraryDatabase {
 
 	        try (FileWriter file = new FileWriter("transactionList.json")) {
 	            file.write(jsonArray.toJSONString());
-//	            System.out.println("written to transactionList.json");
 	        } catch (IOException e) {
 	            e.printStackTrace();
 	        }
@@ -490,7 +486,6 @@ public class LibraryDatabase {
 			List<Transaction> t= new ArrayList<Transaction>();
 			File file = new File("transactionList.json");
 	        if (!file.exists() || file.length() == 0) {
-//	            System.out.println("No  data available in the file.");
 	            return t;
 	        }
 	        long id=0;
@@ -504,7 +499,6 @@ public class LibraryDatabase {
 					String type=  (String) jsonObject.get("type");
 					String date=(String) jsonObject.get("Date");
 					Transaction c=new Transaction((int)id, (int)bId, type, new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy").parse(date));
-					
 					t.add(c);
 					
 				}
