@@ -15,7 +15,7 @@ public class ViewBooksModel {
 	public void getBookList() {
 		List<Book> allBooks=LibraryDatabase.getInstanse().getAllBooks();
 		viewBooksView.alertText("----------------------------------------------------------------------------");
-		viewBooksView.alertText("Book Id\t\tBook Name\t\tBook Author");
+		viewBooksView.alertText("Book Id\t\tBook Name\t\tBook Author\tEdition\t\tPublication");
 		viewBooksView.alertText("----------------------------------------------------------------------------");
 		if(allBooks.size()!=0)
 		{

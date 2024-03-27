@@ -1,5 +1,7 @@
 package com.zsgs.librarymanagement;
 
+import java.text.ParseException;
+
 import com.zsgs.librarymanagement.login.LoginView;
 
 public class LibraryManagement2024 {
@@ -20,7 +22,7 @@ public class LibraryManagement2024 {
 
 	}
 
-	private void create() {
+	private void create() throws Exception {
 		LoginView loginView = new LoginView();
 		loginView.init();
 	}
@@ -33,7 +35,7 @@ public class LibraryManagement2024 {
 		return appVersion;
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		LibraryManagement2024.getInstance().create();
 
 	}

@@ -16,7 +16,7 @@ public class RemoveBookModel {
 		}
 		else
 		{
-			removeBookView.alertText("\nBook Not Found ----------------------------");
+			removeBookView.alertText("\nBook Not Found in the Library ----------------------------");
 		}
 	}
 	 

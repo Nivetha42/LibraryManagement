@@ -1,6 +1,7 @@
 package com.zsgs.librarymanagement.returnprocess;
 
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -48,7 +49,7 @@ public class ReturnProcessModel {
 		return "Book Not Found";
 		
 	}
-	public void viewAllAllotment()
+	public void viewAllAllotment() throws ParseException
 	{
 		int flag=0;
 		List<Allot> allotedList=LibraryDatabase.getInstanse().getAssignedList();
@@ -67,7 +68,7 @@ public class ReturnProcessModel {
 		returnProcessView.alertText("------------------------------------------------------------------------------------------");
 		
 	}
-	public void findOverDue() {
+	public void findOverDue() throws ParseException {
 		List<Allot> allotedList=LibraryDatabase.getInstanse().getAssignedList();
 		Date date=new Date();
 		int flag=0;

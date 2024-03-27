@@ -1,5 +1,7 @@
 package com.zsgs.librarymanagement.login;
 
+import java.text.ParseException;
+
 import com.zsgs.librarymanagement.librarysetup.LibrarySetupView;
 
 class LoginModel {
@@ -9,7 +11,7 @@ class LoginModel {
 		this.loginView = loginView;
 	}
 
-	public void validateUser(String userName, String password) {
+	public void validateUser(String userName, String password) throws Exception {
 		if (isValidUserName(userName)) {
 			if (isValidPassword(userName,password)) {
 				loginView.OnSuccess();
@@ -22,7 +24,7 @@ class LoginModel {
 		}
 	}
 
-	public void librarySetup() {
+	public void librarySetup() throws Exception {
 		LibrarySetupView librarySetUpView = new LibrarySetupView();
 		librarySetUpView.libraryInit();
 	}

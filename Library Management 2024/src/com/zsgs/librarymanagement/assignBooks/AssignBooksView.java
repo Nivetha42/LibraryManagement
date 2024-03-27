@@ -12,7 +12,7 @@ public class AssignBooksView {
 	 {
 		 AssignBooksModel=new AssignBooksModel(this);
 	 }
-	public void initAssignBooks()
+	public void initAssignBooks() throws ParseException
 	{
 		System.out.println("Assign Books to Users ");
 		Scanner sc=new Scanner(System.in);
@@ -32,12 +32,12 @@ public class AssignBooksView {
 		AssignBooksModel.assignBooks(allot);
 		
 	}
-	public void alertText(String alertText)
+	public void alertText(String alertText) throws ParseException
 	{
 		System.out.println(alertText);
 		checkAssignBooks();
 	}
-	private void checkAssignBooks() {
+	private void checkAssignBooks() throws ParseException {
 		System.out.println("Do you want to Assign Books Again \n Type Yes / No ");
 		Scanner scanner=new Scanner(System.in);
 		String choice=scanner.next();

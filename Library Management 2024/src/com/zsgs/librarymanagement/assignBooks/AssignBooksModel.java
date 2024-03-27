@@ -25,7 +25,7 @@ public class AssignBooksModel {
 		}
 		return false;
 	}
-	public void assignBooks(Allot allot) {
+	public void assignBooks(Allot allot) throws ParseException {
 	
 		List<Book> books=LibraryDatabase.getInstanse().getAllBooks();
 		if(LibraryDatabase.getInstanse().isUser(allot.getUserId())==false)

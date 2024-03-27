@@ -1,5 +1,6 @@
 package com.zsgs.librarymanagement.returnprocess;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
@@ -24,11 +25,11 @@ public class ReturnProcessView {
 	System.out.println(alertText);
 		
 	}
-	public void displayAllotedBook()
+	public void displayAllotedBook() throws ParseException
 	{
 		returnProcessModel.viewAllAllotment();
 	}
-	public void overDueBooks()
+	public void overDueBooks() throws ParseException
 	{
 		returnProcessModel.findOverDue();
 	}

@@ -1,5 +1,6 @@
 package com.zsgs.librarymanagement.manageusers;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
@@ -15,7 +16,7 @@ public class ManageUsersView {
 		manageUsersModel = new ManageUsersModel(this);
 	}
 
-	public void initAdd() {
+	public void initAdd() throws ParseException {
 		Scanner sc = new Scanner(System.in);
 
 		while (true) {
@@ -39,7 +40,7 @@ public class ManageUsersView {
 		}
 	}
 
-	private void loginUser() {
+	private void loginUser() throws ParseException {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter the UserId");
 		int uId = sc.nextInt();
@@ -73,7 +74,7 @@ public class ManageUsersView {
 
 	}
 
-	public void OnsucessLogin(int userId) {
+	public void OnsucessLogin(int userId) throws ParseException {
 		System.out.println("Login Successful");
 		manageUsersModel.getUserDetails(userId);
 

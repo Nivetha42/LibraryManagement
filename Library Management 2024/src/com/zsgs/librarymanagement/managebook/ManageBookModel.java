@@ -1,5 +1,6 @@
 package com.zsgs.librarymanagement.managebook;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -12,7 +13,7 @@ import com.zsgs.librarymanagement.model.Transaction;
 public class ManageBookModel {
 	private ManageBookView manageBookView;
 
-	public ManageBookModel(ManageBookView manageBookView) {
+	public ManageBookModel(ManageBookView manageBookView) throws ParseException {
 		this.manageBookView = manageBookView;
 		Library library = LibraryDatabase.getInstanse().getLibrary();
 	}
@@ -36,7 +37,7 @@ public class ManageBookModel {
 
 	}
 
-	public void getHistory() {
+	public void getHistory() throws Exception {
 
 		List<Transaction> history = LibraryDatabase.getInstanse().getAllTransactionList();
 		if (history == null) {
@@ -52,7 +53,7 @@ public class ManageBookModel {
 
 	}
 
-	public void getByUserId(int userId) {
+	public void getByUserId(int userId) throws Exception {
 		List<Transaction> history = LibraryDatabase.getInstanse().getAllTransactionList();
 		if (history == null) {
 			manageBookView.showAlert("No Transactions Yet");
@@ -69,7 +70,7 @@ public class ManageBookModel {
 		manageBookView.showAlert("----------------------------------------------------------------------------");
 	}
 
-	public void getByBookId(int bookId) {
+	public void getByBookId(int bookId) throws Exception {
 		List<Transaction> history = LibraryDatabase.getInstanse().getAllTransactionList();
 		if (history == null) {
 			manageBookView.showAlert("No Transactions Yet");

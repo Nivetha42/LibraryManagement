@@ -1,5 +1,6 @@
 package com.zsgs.librarymanagement.manageusers;
 
+import java.text.ParseException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class ManageUsersModel {
 		}
 	}
 
-	public void checkUser(Credentials credentials) {
+	public void checkUser(Credentials credentials) throws ParseException {
 		List<Credentials> c = LibraryDatabase.getInstanse().getCredentialList();
 
 		for (Credentials cd : c) {
@@ -62,7 +63,7 @@ public class ManageUsersModel {
 
 	}
 
-	public void getUserDetails(int userId) {
+	public void getUserDetails(int userId) throws ParseException {
 		List<Allot> allotedList = LibraryDatabase.getInstanse().getAssignedList();
 		int flag = 0;
 		manageUsersView.alertText("----------------------------------------------------------------------------");

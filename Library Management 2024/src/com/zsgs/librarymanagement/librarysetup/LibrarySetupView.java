@@ -1,5 +1,6 @@
 package com.zsgs.librarymanagement.librarysetup;
 
+import java.text.ParseException;
 import java.util.Scanner;
 
 import com.zsgs.librarymanagement.LibraryManagement2024;
@@ -16,15 +17,15 @@ import com.zsgs.librarymanagement.viewbook.ViewBooksView;
 public class LibrarySetupView {
 	public LibrarySetupModel librarySetupModel;
 
-	public LibrarySetupView() {
+	public LibrarySetupView() throws ParseException {
 		librarySetupModel = new LibrarySetupModel(this);
 	}
 
-	public void libraryInit() {
+	public void libraryInit() throws Exception {
 		librarySetupModel.startSetUp();
 	}
 
-	public void initiateSetUp() {
+	public void initiateSetUp() throws Exception {
 		// get details using scanner
 		System.out.println("\nEnter Library Details : ");
 		Scanner sc = new Scanner(System.in);
@@ -37,7 +38,7 @@ public class LibrarySetupView {
 		librarySetupModel.createLibrary(library);
 	}
 
-	public void onSetUpComplete(Library library) {
+	public void onSetUpComplete(Library library) throws Exception {
 		System.out.println("\nLibrary SetUp Completed. ");
 		System.out.println("\nCurrent Library Name - " + library.getLibraryName());
 		Scanner sc = new Scanner(System.in);
@@ -81,7 +82,7 @@ public class LibrarySetupView {
 
 	}
 
-	public void showAlert(String alertText) {
+	public void showAlert(String alertText) throws Exception {
 		System.out.println(alertText);
 		initiateSetUp();
 	}

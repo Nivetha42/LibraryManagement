@@ -1,5 +1,6 @@
 package com.zsgs.librarymanagement.login;
 
+import java.text.ParseException;
 import java.util.Scanner;
 
 import com.zsgs.librarymanagement.LibraryManagement2024;
@@ -12,7 +13,7 @@ public class LoginView {
 		loginModel = new LoginModel(this);
 	}
 
-	public void init() {
+	public void init() throws Exception {
 		System.out.println("-------------------" + LibraryManagement2024.getInstance().getAppName()
 				+ "-------------------------------");
 		while (true) {
@@ -28,12 +29,12 @@ public class LoginView {
 		}
 	}
 
-	public void onLoginFailed(String alertText) {
+	public void onLoginFailed(String alertText) throws Exception {
 		System.out.println(alertText);
 		checkForLogin();
 	}
 
-	private void checkForLogin() {
+	private void checkForLogin() throws Exception {
 		System.out.println("Do you want to Try Again \n Type Yes / No ");
 		Scanner scanner = new Scanner(System.in);
 		String choice = scanner.next();
@@ -48,14 +49,14 @@ public class LoginView {
 
 	}
 
-	public void OnSuccess() {
+	public void OnSuccess() throws Exception {
 		System.out.println("Login Success!.....\n-----Welcome To " + LibraryManagement2024.getInstance().getAppName()
 				+ "-------");
 		loginModel.librarySetup();
 
 	}
 
-	private void proceedLogin() {
+	private void proceedLogin() throws Exception {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter the Username");
 		String userName = scanner.next();

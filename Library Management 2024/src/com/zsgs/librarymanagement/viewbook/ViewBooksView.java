@@ -15,7 +15,7 @@ public class ViewBooksView {
 	}
 
 	public void viewBook(Book book) {
-		System.out.println(book.getId()+"\t\t"+book.getName()+"\t\t"+book.getAuthor());
+		System.out.println(book.getId()+"\t\t"+book.getName()+"\t\t"+book.getAuthor()+"\t\t"+book.getEdition()+"\t\t"+book.getPublication());
 	}
 
 	public void alertText(String alertText) {

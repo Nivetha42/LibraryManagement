@@ -1,5 +1,6 @@
 package com.zsgs.librarymanagement.managebook;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
@@ -12,7 +13,7 @@ import com.zsgs.librarymanagement.viewbook.ViewBooksView;
 public class ManageBookView {
 	ManageBookModel manageBookModel;
 
-	public ManageBookView() {
+	public ManageBookView() throws ParseException {
 		manageBookModel = new ManageBookModel(this);
 	}
 
@@ -57,6 +58,10 @@ public class ManageBookView {
 		book.setName(sc.nextLine());
 		System.out.println("Enter Book Author: ");
 		book.setAuthor(sc.nextLine());
+		System.out.println("Enter the Publication :");
+		book.setPublication(sc.nextLine());
+		System.out.println("Enter the edition : ");
+		book.setEdition(sc.nextLine());
 		manageBookModel.addNewBook(book);
 	}
 
@@ -92,7 +97,7 @@ public class ManageBookView {
 		checkForAddNewBook();
 	}
 
-	public void viewHistory() {
+	public void viewHistory() throws Exception {
 		Scanner sc=new Scanner(System.in);
 		while(true)
 		{
@@ -106,7 +111,7 @@ public class ManageBookView {
 				manageBookModel.getByUserId(sc.nextInt());
 				break;
 			case 2:
-				System.out.println("Enter User Id : ");
+				System.out.println("Enter Book Id : ");
 				manageBookModel.getByBookId(sc.nextInt());
 				break;
 			case 3:
